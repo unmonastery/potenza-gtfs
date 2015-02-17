@@ -1,11 +1,22 @@
 var config = require('./package.json').config;
-// upload settings specific to Potenza
-var settings = require('./potenza.json');
 
 
-var gtfsMaker = require('gtfs-maker');
-var loadData = gtfsMaker.load;
-var saveDataAsCsv = gtfsMaker.saveAsCsv;
+var GtfsMaker = require('gtfs-maker');
+
+var gtfsMaker = new GtfsMaker({
+  settings:require('./potenza.json'),
+  data:{
+    timetables:{
+      isDirectory:true,
+      format:'csv',
+      ext:'.csv',
+      dir:'./extracted/timetables/',
+      transform:function(item){
+        return item;
+      }
+    }
+  }
+});
 
 
 module.exports = function(grunt){
@@ -21,7 +32,7 @@ module.exports = function(grunt){
 
      var done = this.async();
 
-     gtfsMaker.cache(settings)
+     gtfsMaker.cache()
       .catch(function(err){
           console.log(err);
       }).then(done);
