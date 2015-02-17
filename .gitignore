@@ -1,4 +1,4 @@
-cache
+cache/*
 gtfs/trips.txt
 gtfs/stop_times.txt
 gtfs/calendar.txt
