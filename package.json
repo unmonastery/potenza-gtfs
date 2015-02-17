@@ -1,0 +1,22 @@
+{
+  "name": "potenza-gtfs",
+  "version": "0.0.0",
+  "description": "",
+  "main": "Gruntfile.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/unmonastery/potenza-gtfs.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/unmonastery/potenza-gtfs/issues"
+  },
+  "homepage": "https://github.com/unmonastery/potenza-gtfs",
+  "dependencies": {
+    "grunt": "^0.4.5"
+  }
+}

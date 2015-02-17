@@ -21,7 +21,7 @@ module.exports = function(grunt){
 
      var done = this.async();
 
-     gtfsMaker.cache()
+     gtfsMaker.cache(settings)
       .catch(function(err){
           console.log(err);
       }).then(done);
