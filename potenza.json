@@ -1,10 +1,76 @@
 {
-  "ref":"",
+  "ref":"http://www.openstreetmap.org/relation/3925222",
   "lines":[
+    {
+      "number":"1",
+      "color":"#0000CD",
+      "osmId":3215356
+    },
+    {
+      "number":"2",
+      "color":"#0000CD",
+      "osmId":3215378
+    },
     {
       "number":"3",
       "color":"#0000CD",
-      "osmId":3776289
+      "osmId":3216065
+    },
+    {
+      "number":"4",
+      "color":"#0000CD",
+      "osmId":3216784
+    },
+    {
+      "number":"5",
+      "color":"#0000CD",
+      "osmId":3216972
+    },
+    {
+      "number":"6",
+      "color":"#0000CD",
+      "osmId":3219378
+    },
+    {
+      "number":"7",
+      "color":"#0000CD",
+      "osmId":3219396
+    },
+    {
+      "number":"8",
+      "color":"#0000CD",
+      "osmId":3219454
+    },
+    {
+      "number":"9",
+      "color":"#0000CD",
+      "osmId":3925454
+    },
+    {
+      "number":"11",
+      "color":"#0000CD",
+      "osmId":3925713
+    },
+    {
+      "number":"12",
+      "color":"#0000CD",
+      "osmId":3925795
+    },
+    {
+      "number":"M",
+      "osmId":3925709
+    },
+    {
+      "number":"P",
+      "osmId":3925710
+    },
+    {
+      "number":"T",
+      "osmId":3925711
+    },
+    {
+      "number":"V",
+      "osmId":3925712
     }
   ]
 }
