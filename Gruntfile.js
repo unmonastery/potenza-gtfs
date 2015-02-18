@@ -69,6 +69,16 @@ module.exports = function(grunt){
       }).then(done);
   });
 
+  grunt.registerTask('trips', function(){
+    var done = this.async();
+    var tripBuilder = require('./builder/trips');
+    var trips = tripBuilder( gtfsMaker.loadData(['timetables']) );
+    gtfsMaker.saveDataAsCsv( trips, './gtfs/trips.txt' )
+      .catch(function(err){
+        console.log(err);
+      }).then(done);
+  });
+
   grunt.registerTask('validate', function(){
     var done = this.async();
     gtfsMaker.validateGtfs( './gtfs' )
