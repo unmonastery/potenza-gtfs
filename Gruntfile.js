@@ -60,4 +60,13 @@ module.exports = function(grunt){
       }).then(done);
   });
 
+  grunt.registerTask('shapes', function(){
+    var done = this.async();
+    var shapes = gtfsMaker.builders.shapes( gtfsMaker.loadData(['routes', 'ways', 'nodes']) );
+    gtfsMaker.saveDataAsCsv( shapes, './gtfs/shapes.txt' )
+      .catch(function(err){
+        console.log(err);
+      }).then(done);
+  });
+
 };
