@@ -23,8 +23,11 @@ module.exports = function(grunt){
 
   // utility function to parse command line options
   function fetchOptions(){
+    var include = grunt.option( "include" );
+    if (!include)
+      throw new Error('You must include at least a line.');
     return {
-      include:grunt.option( "include" ).toString().split(',')
+      include:include.toString().split(',')
     };
   }
 
@@ -37,6 +40,15 @@ module.exports = function(grunt){
           console.log(err);
       }).then(done);
 
+  });
+
+  grunt.registerTask('stops', function(){
+    var done = this.async();
+    var routes = gtfsMaker.builders.stops( gtfsMaker.loadData(['stops']) );
+    gtfsMaker.saveDataAsCsv( routes, './gtfs/stops.txt' )
+      .catch(function(err){
+        console.log(err);
+      }).then(done);
   });
 
 
