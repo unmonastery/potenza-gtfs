@@ -69,4 +69,9 @@ module.exports = function(grunt){
       }).then(done);
   });
 
+  grunt.registerTask('validate', function(){
+    var done = this.async();
+    gtfsMaker.validateGtfs( './gtfs' ).then(done);
+  });
+
 };
