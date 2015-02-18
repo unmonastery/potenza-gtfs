@@ -1,0 +1,255 @@
+<!doctype html>
+<html lang="en">
+
+	<head>
+		<meta charset="utf-8">
+
+		<title>unTransit Potenza</title>
+
+
+		<meta name="apple-mobile-web-app-capable" content="yes" />
+		<meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no, minimal-ui">
+
+		<link rel="stylesheet" href="css/reveal.css">
+		<link rel="stylesheet" href="css/theme/black.css" id="theme">
+
+		<!-- Code syntax highlighting -->
+		<link rel="stylesheet" href="lib/css/zenburn.css">
+
+		<!-- Printing and PDF exports -->
+		<script>
+			var link = document.createElement( 'link' );
+			link.rel = 'stylesheet';
+			link.type = 'text/css';
+			link.href = window.location.search.match( /print-pdf/gi ) ? 'css/print/pdf.css' : 'css/print/paper.css';
+			document.getElementsByTagName( 'head' )[0].appendChild( link );
+		</script>
+
+		<!--[if lt IE 9]>
+		<script src="lib/js/html5shiv.js"></script>
+		<![endif]-->
+	</head>
+
+	<body>
+
+		<div class="reveal">
+
+			<!-- Any section element inside of this container is displayed as a slide -->
+			<div class="slides">
+				<section>
+					<h1>unTransit Potenza</h1>
+					<p>#unTransitPotenza</p>
+					<p>
+						<small> by <a href="http://twitter.com/elfPavlik">@elfPavlik</a> and <a href="http://twitter.com/m4stn">@m4stn</a></small>
+					</p>
+				</section>
+
+				<section>
+					<h2>the unMonastery rides again</h2>
+					<p>
+						<a href="http://unmonastery.org/">
+							unMonastery
+						</a>
+						&bull;
+						<a href="http://www.comune.matera.it/it/home-page/item/6123-open-data-contest-ecco-i-vincitori">
+						  opendata challenge
+						</a>
+						&bull;
+						<a href="https://edgeryders.eu/en/unmonastery/hacking-public-transport-matera-and-beyond">
+							back again
+						</a>
+						&bull;
+						<a href="https://edgeryders.eu/en/unmonastery/the-unmonastery-rides-again-untransit-development-sprint">
+							unBlog
+						</a>
+					</p>
+				</section>
+
+				<section>
+					<h2>Matera</h2>
+					<p>
+						<ul>
+							<li>Lines/Stops mapped on OpenStreetMap</li>
+							<li>GtfsMaker &bull; <a href="https://github.com/mapourtransit/gtfs-maker">repo</a></li>
+							<li>Ulm LiveMap &bull; <a href="http://87.230.17.190:7777/map">demo</a></li>
+							<li>Some apps should already use our data</li>
+						</ul>
+					</p>
+				</section>
+
+				<section>
+					<h2>Lessons learnt</h2>
+					<p>
+						<ul>
+							<li>Wrong is better than nothing</li>
+							<li>Start simple</li>
+							<li>Issue tracking</li>
+							<li>Eventually correct and complete</li>
+							<li>Data stewardship</li>
+						</ul>
+					</p>
+				</section>
+
+				<section>
+					<h1>Mapping Potenza</h1>
+				</section>
+
+				<section>
+					<h2>A too optimistic roadmap</h2>
+					<img src="img/workflow2.png" />
+				</section>
+
+				<section>
+					<h2>Resources</h2>
+					<p>
+						<ul>
+							<li>
+								Timetables <a href="http://tinyurl.com/ou2cvul">http://tinyurl.com/ou2cvul</a>
+							</li>
+							<li>
+							  Issue Tracker <a href="http://tinyurl.com/ncbdcuh">http://tinyurl.com/ncbdcuh</a>
+							</li>
+							<li>
+								Collaborative timetable editor <a href="http://tinyurl.com/ofcly49">http://tinyurl.com/ofcly49</a>
+							</li>
+							<li>
+								OpenStreetMap <a href="http://openstreetmap.org">http://openstreetmap.org</a>
+							</li>
+							<li>
+								JOSM <a href="https://josm.openstreetmap.de/">https://josm.openstreetmap.de</a>
+							</li>
+							<li>
+								GTFS <a href="https://developers.google.com/transit/gtfs/reference">
+									https://developers.google.com/transit/gtfs/
+								</a>
+							</li>
+							<li>
+								Android OSM Tracker (or equivalent)
+							</li>
+						</ul>
+					</p>
+				</section>
+
+				<section>
+					<h2>GTFS format</h2>
+					<small>
+					<table class="reveal">
+					<tr>
+						<td>agency.txt</td>
+						<td>One or more transit agencies that provide the data in this feed</td>
+						<td>DONE</td>
+					</tr>
+					<tr>
+						<td>stops.txt</td>
+						<td>Individual locations where vehicles pick up or drop off passengers</td>
+						<td>DONE</td>
+					</tr>
+					<tr>
+						<td>routes.txt</td>
+						<td>Transit routes</td>
+						<td>DONE</td>
+					</tr>
+					<tr>
+						<td>trips.txt</td>
+						<td>Trips for each route</td>
+						<td>DONE</td>
+					</tr>
+					<tr>
+						<td>stop_times.txt</td>
+						<td>Times that a vehicle arrives at and departs from individual stops for each trip</td>
+					</tr>
+					<tr>
+						<td>calendar.txt</td>
+						<td>Dates for service IDs using a weekly schedule. </td>
+						<td>DONE/MANUAL</td>
+					</tr>
+					<tr>
+						<td>calendar_dates.txt</td>
+						<td>Exceptions for the service IDs defined in the calendar.txt file</td>
+						<td>MANUAL</td>
+					</tr>
+					<tr>
+						<td>shapes.txt</td>
+						<td>lines on a map</td>
+						<td>DONE</td>
+					</tr>
+					</table>
+				</small>
+				<p>
+					<a href="https://developers.google.com/transit/gtfs/reference">
+						https://developers.google.com/transit/gtfs/reference
+					</a>
+				</p>
+				</section>
+
+				<section>
+					<h2>Working groups</h2>
+					<p>
+						<ul>
+							<li>Data entry: make PDFs machine readable</li>
+							<li>Mapping: bus riding and gps tracking</li>
+							<li>Editing/Amending OSM</li>
+							<li>Documentation writing</li>
+							<li>Coding/Bug fixing</li>
+						</ul>
+					</p>
+				</section>
+
+				<section>
+					<h2>What's next?</h2>
+					<p>
+						Iterate the same process for each line!
+					</p>
+				</section>
+
+				<section>
+					<p>
+						Thanks to Alberto Cottica, Ida Leone, Beniamino Murgante, OpenLab Matera.
+					</p>
+				</section>
+
+				<section>
+					<blockquote>
+						"We do not produce opendata, we produce subversion"
+					</blockquote>
+					Anonymous monk ~ 1230 ac
+				</section>
+
+			</div>
+
+
+
+		</div>
+
+		<script src="lib/js/head.min.js"></script>
+		<script src="js/reveal.js"></script>
+
+		<script>
+
+			// Full list of configuration options available at:
+			// https://github.com/hakimel/reveal.js#configuration
+			Reveal.initialize({
+				controls: true,
+				progress: true,
+				history: true,
+				center: true,
+
+				transition: 'slide', // none/fade/slide/convex/concave/zoom
+
+				// Optional reveal.js plugins
+				dependencies: [
+					{ src: 'lib/js/classList.js', condition: function() { return !document.body.classList; } },
+					{ src: 'plugin/markdown/marked.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/markdown/markdown.js', condition: function() { return !!document.querySelector( '[data-markdown]' ); } },
+					{ src: 'plugin/highlight/highlight.js', async: true, condition: function() { return !!document.querySelector( 'pre code' ); }, callback: function() { hljs.initHighlightingOnLoad(); } },
+					{ src: 'plugin/zoom-js/zoom.js', async: true },
+					{ src: 'plugin/notes/notes.js', async: true }
+				]
+			});
+
+		</script>
+
+	</body>
+</html>
