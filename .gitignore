@@ -8,3 +8,4 @@ gtfs/calendar.txt
 gtfs/frequencies.txt
 gtfs/routes.txt
 node_modules
+validation-results.html
