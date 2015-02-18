@@ -71,7 +71,10 @@ module.exports = function(grunt){
 
   grunt.registerTask('validate', function(){
     var done = this.async();
-    gtfsMaker.validateGtfs( './gtfs' ).then(done);
+    gtfsMaker.validateGtfs( './gtfs' )
+      .catch(function(err){
+        console.log(err);
+      }).then(done);
   });
 
 };
