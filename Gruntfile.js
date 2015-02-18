@@ -1,17 +1,27 @@
 var config = require('./package.json').config;
+var settings = require('./potenza.json');
 
+var request = require('superagent');
+var Promise = require('es6-promise').Promise;
+var fs = require('fs');
+var _ = require('lodash');
 
 var GtfsMaker = require('gtfs-maker');
 
 var gtfsMaker = new GtfsMaker({
-  settings:require('./potenza.json'),
+  settings:settings,
   data:{
     timetables:{
-      isDirectory:true,
       format:'csv',
       ext:'.csv',
-      dir:'./extracted/timetables/',
-      transform:function(item){
+      dir:'./cache/',
+      transform: function(item){
+        function lookup(lineNumber){
+          return _.result(_.find( settings.lines, function(line){
+            return line.number == lineNumber;
+          }), 'osmId');
+        }
+        item.master_id = lookup( item.line_number );
         return item;
       }
     }
@@ -31,14 +41,34 @@ module.exports = function(grunt){
     };
   }
 
+  // TODO refactor: duplicate code in matera-gtfs
   grunt.registerTask('cache', function(){
-
      var done = this.async();
 
-     gtfsMaker.cache()
-      .catch(function(err){
-          console.log(err);
-      }).then(done);
+     function fetchCSV(){
+       return new Promise(function(resolve, reject){
+         request.get( settings.timetables )
+             .end(function(err, res){
+               if(err){
+                 reject(err);
+               } else {
+                 resolve(res.text);
+               }
+             });
+         });
+       }
+
+       function saveData(data){
+         fs.writeFileSync('./cache/timetables.csv', data);
+       }
+
+       gtfsMaker.cache()
+         .then(function(){
+           fetchCSV().then(saveData)
+              .catch(function(err){
+                console.log(err);
+              }).then(done);
+         });
 
   });
 
@@ -71,8 +101,8 @@ module.exports = function(grunt){
 
   grunt.registerTask('trips', function(){
     var done = this.async();
-    var tripBuilder = require('./builder/trips');
-    var trips = tripBuilder( gtfsMaker.loadData(['timetables']) );
+    var tripBuilder = require('./builders/trips');
+    var trips = tripBuilder( gtfsMaker.loadData(['timetables']), fetchOptions() );
     gtfsMaker.saveDataAsCsv( trips, './gtfs/trips.txt' )
       .catch(function(err){
         console.log(err);

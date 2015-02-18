@@ -9,11 +9,12 @@ module.exports = function(data, options){
   var timetables = data[0];
 
   timetables.forEach(function(row){
+
     if ( !_.contains( include, row.line_number ) ){
       return; // skip this line
     }
     trips.push({
-      route_id: row.master_id, 
+      route_id: row.master_id,
       service_id: row.service,
       trip_id: row.line_number + '_' + row.osm_id + '_' + row.service,
       trip_headsign: row.to,
@@ -22,4 +23,4 @@ module.exports = function(data, options){
   });
 
   return trips;
-});
+};
