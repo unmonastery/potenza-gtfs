@@ -1,0 +1,15 @@
+stop_number,stop_name,offset,Linea bus,Metropolitana,Parcheggio,Ferrovia,Scale Mobili,Autostazione,Tribunale,Università,Ospedale,Notes
+134,Università Campus,,,,,,,,,,,
+133,Stazione Macchia Romana,,,x,,x,,,,,,
+130,Ospedale San Carlo,5,,,,,,,,,,
+236,Via Lazio,,,,,,,,,,,Uffici Provincia-Museo
+240,Via Cavour,,,,,,x,,,,,Due Torri
+242,San Rocco,10,,x,,,,,,,,
+247,Via Appia,,,,,,,,,,,
+161,Via Grippo,,,,,,,,,,,Acquedotto Lucano-Poste Centrali
+163,Via Gavioli,,,,,,,,,,,
+168,Via Baracca,,,,,,,,,,,
+171,Piazza Francioso,,,,,,,,,x,,
+171,Via Viviani,,,,,,,,x,,,
+175,Viale Marconi,,,,,,x,,,,,Prima
+107,Mobilty Centre,25,,,,,,,,,,

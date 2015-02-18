@@ -1,0 +1,16 @@
+stop_number,stop_name,offset,Linea bus,Metropolitana,Parcheggio,Ferrovia,Scale Mobili,Autostazione,Tribunale,Università,Ospedale,Notes
+,Mobility Centre,,,,,,,,,,,
+,Viale Marconi,,,,,,x,,,,,Prima
+,Via Viviani,,,,,,,,x,,,
+,Piazza Francioso,,,,,,,,,x,,
+,Via Baracca,,,,,,,,,,,
+,Via Gavioli,,,,,,,,,,,
+,VIa Nitti,,,,,,,,,,,
+,Via Grippo,,,,,,,,,,,Acquedotto Lucano-Poste Centrali
+,Via Appia,,,,,,,,,,,
+,San Rocco,15,,x,,,,,,,,
+,Via Cavour,,,,,,x,,,,,Due Torri
+,Via Ciccotti,,,,,,,,,,,Uffici Provincia - Museo
+,Ospedale San Carlo,20,,,,,,,,,,
+,Stazione Macchia Romana,,,x,,x,,,,,,
+,Università Campus,25,,,,,,,,,,

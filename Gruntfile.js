@@ -8,6 +8,10 @@ var _ = require('lodash');
 
 var GtfsMaker = require('gtfs-maker');
 
+function isNumber(text){
+  return /^\d+$/.test(text);
+}
+
 var gtfsMaker = new GtfsMaker({
   settings:settings,
   data:{
@@ -21,7 +25,49 @@ var gtfsMaker = new GtfsMaker({
             return line.number == lineNumber;
           }), 'osmId');
         }
+        var key, value;
+        var times = [];
+
+        item.offset = item.sheet;
+        delete item.sheet;
         item.master_id = lookup( item.line_number );
+
+        for ( key in item ){
+          value = item[key];
+          if ( isNumber(key) ){
+            if ( !_.isEmpty(value) )
+              times.push( value );
+            delete item[key];
+          }
+        }
+        item.startTimes = times;
+        return item;
+      }
+    },
+    offsets:{
+      isDirectory:true,
+      format:'csv',
+      ext:'.csv',
+      dir:'./extracted/offsets/',
+      transform: function(item){
+        function lookup(lineNumber){
+          return _.result(_.find( settings.lines, function(line){
+            return line.number == lineNumber;
+          }), 'osmId');
+        }
+        var matches = /(.*)R*\.csv/.exec(item.name);
+        if ( !matches ){
+          throw new Error('Offset file not in correct format.');
+        }
+        var name = matches[1];
+        var isReturn = name[ name.length-1 ] == 'R';
+        var lineNumber = name.replace('R','');
+        item.master_id = lookup( lineNumber );
+        item.line_number = lineNumber;
+        item.isReturn = isReturn;
+        item.name = name;
+        item.stoptimes = item.content;
+        delete item.content;
         return item;
       }
     }
@@ -122,6 +168,16 @@ module.exports = function(grunt){
   grunt.registerTask('validate', function(){
     var done = this.async();
     gtfsMaker.validateGtfs( './gtfs' )
+      .catch(function(err){
+        console.log(err);
+      }).then(done);
+  });
+
+  grunt.registerTask('stop_times', function(){
+    var done = this.async();
+    var stopTimesBuilder = require('./builders/stopTimes');
+    var stopTimes = stopTimesBuilder( gtfsMaker.loadData(['timetables', 'offsets']), fetchOptions() );
+    gtfsMaker.saveDataAsCsv( stopTimes, './gtfs/stop_times.txt' )
       .catch(function(err){
         console.log(err);
       }).then(done);
