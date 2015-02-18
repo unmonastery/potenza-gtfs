@@ -1,4 +1,6 @@
 cache/*
+gtfs/stops.txt
+gtfs/routes.txt
 gtfs/trips.txt
 gtfs/stop_times.txt
 gtfs/calendar.txt

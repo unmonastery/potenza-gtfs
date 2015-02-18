@@ -44,12 +44,20 @@ module.exports = function(grunt){
 
   grunt.registerTask('stops', function(){
     var done = this.async();
-    var routes = gtfsMaker.builders.stops( gtfsMaker.loadData(['stops']) );
-    gtfsMaker.saveDataAsCsv( routes, './gtfs/stops.txt' )
+    var stops = gtfsMaker.builders.stops( gtfsMaker.loadData(['stops']) );
+    gtfsMaker.saveDataAsCsv( stops, './gtfs/stops.txt' )
       .catch(function(err){
         console.log(err);
       }).then(done);
   });
 
+  grunt.registerTask('routes', function(){
+    var done = this.async();
+    var routes = gtfsMaker.builders.routes( gtfsMaker.loadData(['masters']) );
+    gtfsMaker.saveDataAsCsv( routes, './gtfs/routes.txt' )
+      .catch(function(err){
+        console.log(err);
+      }).then(done);
+  });
 
 };
