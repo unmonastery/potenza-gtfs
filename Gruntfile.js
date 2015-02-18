@@ -109,6 +109,16 @@ module.exports = function(grunt){
       }).then(done);
   });
 
+  grunt.registerTask('calendar', function(){
+    var done = this.async();
+    var calendarBuilder = require('./builders/calendar');
+    var calendar = calendarBuilder( gtfsMaker.loadData(['timetables']), fetchOptions() );
+    gtfsMaker.saveDataAsCsv( calendar, './gtfs/calendar.txt' )
+      .catch(function(err){
+        console.log(err);
+      }).then(done);
+  });
+
   grunt.registerTask('validate', function(){
     var done = this.async();
     gtfsMaker.validateGtfs( './gtfs' )
