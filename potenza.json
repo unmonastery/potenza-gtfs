@@ -4,74 +4,133 @@
   "lines":[
     {
       "number":"1",
-      "color":"#0000CD",
+      "color":"#EFE768",
       "osmId":3215356
     },
     {
       "number":"2",
-      "color":"#0000CD",
+      "color":"#B4457C",
       "osmId":3215378
     },
     {
       "number":"3",
-      "color":"#0000CD",
+      "color":"#438677",
       "osmId":3216065
     },
     {
       "number":"4",
-      "color":"#0000CD",
+      "color":"#E42319",
       "osmId":3216784
     },
     {
       "number":"5",
-      "color":"#0000CD",
+      "color":"#00AFA7",
       "osmId":3216972
     },
     {
       "number":"6",
-      "color":"#0000CD",
+      "color":"#A8AA7F",
       "osmId":3219378
     },
     {
       "number":"7",
-      "color":"#0000CD",
+      "color":"#4C6BAE",
       "osmId":3219396
     },
     {
       "number":"8",
-      "color":"#0000CD",
+      "color":"#F8B731",
       "osmId":3219454
     },
     {
       "number":"9",
-      "color":"#0000CD",
+      "color":"#87CEE1",
       "osmId":3925454
     },
     {
-      "number":"11",
-      "color":"#0000CD",
-      "osmId":3925713
+      "number":"CS",
+      "color":"#B7B740",
+      "osmId": null
     },
     {
-      "number":"12",
-      "color":"#0000CD",
-      "osmId":3925795
+      "number":"CD",
+      "color":"#76b742",
+      "osmId": null
     },
     {
       "number":"M",
+      "color":"#F28E0F",
       "osmId":3925709
     },
     {
+      "number":"V",
+      "color":"#D564A3",
+      "osmId":3925712
+    },
+    {
       "number":"P",
+      "color":"#26BDA1",
       "osmId":3925710
     },
     {
       "number":"T",
+      "color":"#707D83",
       "osmId":3925711
     },
     {
-      "number":"V",
-      "osmId":3925712
+      "number":"11",
+      "color":"#FFEC58",
+      "osmId":3925713
+    },
+    {
+      "number":"12",
+      "color":"#985BA1",
+      "osmId":3925795
+    },
+    {
+      "number":"13",
+      "color":"#008C4D",
+      "osmId": null
+    },
+    {
+      "number":"14",
+      "color":"#C7262F",
+      "osmId": null
+    },
+    {
+      "number":"15",
+      "color":"#506D85",
+      "osmId": null
+    },
+    {
+      "number":"ARANCIO",
+      "color":"#F8A90A",
+      "osmId": null
+    },
+    {
+      "number":"VERDE",
+      "color":"#3CAA35",
+      "osmId": null
+    },
+    {
+      "number":"BLU",
+      "color":"#444496",
+      "osmId": null
+    },
+    {
+      "number":"ROSSA",
+      "color":"#E52A12",
+      "osmId": null
+    },
+    {
+      "number":"GIALLA",
+      "color":"#FBEA24",
+      "osmId": null
+    },
+    {
+      "number":"AMARANTO",
+      "color":"#A92317",
+      "osmId": null
     }
   ]
 }
