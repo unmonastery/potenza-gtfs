@@ -165,14 +165,6 @@ module.exports = function(grunt){
       }).then(done);
   });
 
-  grunt.registerTask('validate', function(){
-    var done = this.async();
-    gtfsMaker.validateGtfs( './gtfs' )
-      .catch(function(err){
-        console.log(err);
-      }).then(done);
-  });
-
   grunt.registerTask('stop_times', function(){
     var done = this.async();
     var stopTimesBuilder = require('./builders/stopTimes');
@@ -182,5 +174,22 @@ module.exports = function(grunt){
         console.log(err);
       }).then(done);
   });
+
+
+  /**
+   * validate GTFS
+   * FIXME: move to GtfsMaker?
+   */
+  grunt.loadNpmTasks('grunt-exec');
+
+  grunt.initConfig({
+    exec: {
+      validate: {
+        command: 'python2 ./utils/transitfeed/feedvalidator.py gtfs/'
+      }
+    }
+  });
+
+  grunt.registerTask('validate', ['exec:validate']);
 
 };

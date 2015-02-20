@@ -11,7 +11,7 @@
     "url": "https://github.com/unmonastery/potenza-gtfs.git"
   },
   "author": "",
-  "license": "ISC",
+  "license": "Unlicense",
   "bugs": {
     "url": "https://github.com/unmonastery/potenza-gtfs/issues"
   },
@@ -19,6 +19,7 @@
   "dependencies": {
     "es6-promise": "^2.0.1",
     "grunt": "^0.4.5",
+    "grunt-exec": "^0.4.6",
     "lodash": "^3.2.0",
     "moment": "^2.9.0",
     "superagent": "^0.21.0"
